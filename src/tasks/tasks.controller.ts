@@ -13,9 +13,9 @@ export class TasksController {
         return 'Creating task'
     }
 
-    @Put()
-    updateTask() : string {
-        return 'Updating Task';
+    @Put(':id')
+    updateTask(@Body() task: CreateTaskDto, @Param('id')id ): string {
+        return `Updating Task ${task} & ${id}`;
     }
 
     @Delete(':id')
