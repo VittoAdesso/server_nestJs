@@ -18,4 +18,14 @@ export class TasksService {
             done: false,
         }
     ];
+
+    // return all tasks
+    getTasks(): Task[]{
+        return this.tasks;
+    }
+
+      // return all tasks by id, and comprueba
+      getTasks(id): Task{
+        return this.tasks.find(task => tasks.id === id);
+    }
 }
