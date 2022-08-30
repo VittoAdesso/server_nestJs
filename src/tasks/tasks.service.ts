@@ -25,7 +25,7 @@ export class TasksService {
     }
 
       // return all tasks by id, and comprueba
-      getTasks(id): Task{
+      getTasks(id: number): Task{
         return this.tasks.find(task => task.id === id);
     }
 }
