@@ -1,13 +1,30 @@
-import { Controller, Get, Post, Put, Delete, Body, Param } from '@nestjs/common';
+import {
+Controller,  
+Get,  
+Post,  
+Put,  
+Delete,  
+Body,  
+Param   
+} from '@nestjs/common';
 import { CreateTaskDto } from './dto/create.task.dto';
-import { Request, Response} from "express";
+// import { Request, Response} from "express";
+import { TasksService } from './tasks.service';
+import { Task } from './interfaces/Task';
 @Controller('tasks')
 export class TasksController {
 
+    constructor(private tasksService: TasksService){}
     @Get()
-    getTask() : {hello: string} {
-            return {"hello": "world"};
-        }
+    getAllTasks(){
+        return this.tasksService.getAllTasks();
+    }
+
+    @Get(':taskId')
+    getTaskId(@Param('taskId') taskId){
+        return this.tasksService.getTasks(taskId);
+    }
+
 
     @Post()
     createTask(@Body() task: CreateTaskDto): string {

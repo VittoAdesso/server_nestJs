@@ -20,12 +20,12 @@ export class TasksService {
     ];
 
     // return all tasks
-    getTasks(): Task[]{
+    getAllTasks(): Task[] {
         return this.tasks;
     }
 
       // return all tasks by id, and comprueba
       getTasks(id): Task{
-        return this.tasks.find(task => tasks.id === id);
+        return this.tasks.find(task => task.id === id);
     }
 }
